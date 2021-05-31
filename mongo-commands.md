@@ -71,8 +71,12 @@ db.students.find({
   grade: { $exists: true }
 })
 
-db.students.update({
-  grade: { $exists: true }}, 
-  $rename: {grade: 'gpa'},
-  {multi: true}
-)
+db.students.remove({
+  name: 'Mike'
+})
+
+db.teachers.drop()
+
+db
+
+db.dropDatabase()

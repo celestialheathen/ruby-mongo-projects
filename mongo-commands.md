@@ -30,3 +30,21 @@ db.students.insertMany([
     major: ['comedy', 'reactjs', 'gaming']
   }
 ])
+
+db.students.find( {major: 'gaming' } ).pretty()
+
+db.students.update( {name: 'james'}, 
+  {
+  $set: {
+    name: 'James',
+    age: 9
+  }
+})
+
+db.students.update( {name: 'James'}, 
+  {
+  $set: {
+    title: 'Sifu',
+    age: 100
+  }
+})

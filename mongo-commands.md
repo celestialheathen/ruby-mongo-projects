@@ -48,3 +48,31 @@ db.students.update( {name: 'James'},
     age: 100
   }
 })
+
+db.students.update( {name: 'James'},
+  {
+    name: 'James',
+    age: 55,
+    grade: 65.21,
+    major: ['ruby', 'mobile']
+})
+
+db.students.update( {name: 'James'},
+  {
+  $unset: {age: ""}
+})
+
+db.students.update ( {age: 24},
+  {
+  $rename: {grade: 'gpa'}
+})
+
+db.students.find({
+  grade: { $exists: true }
+})
+
+db.students.update({
+  grade: { $exists: true }}, 
+  $rename: {grade: 'gpa'},
+  {multi: true}
+)

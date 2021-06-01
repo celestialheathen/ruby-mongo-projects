@@ -5,13 +5,6 @@ db.teachers.insert({
   homework: true
 })
 
-<!-- > db.teachers.find()
-{ "_id" : ObjectId("60b64e670858adc14e5ce6cf"), -->
-
-db.teachers.find({
-  _id: ObjectId("60b64e670858adc14e5ce6cf")
-})
-
 db.teachers.insertMany([
   {name: 'Sussman', class: 'English', gender: 'female', homework: false},
   {name: 'Sanchez', class: 'Social Studies', gender: 'female', homework: true},
@@ -24,11 +17,5 @@ db.teachers.insertMany([
   {name: 'Wayne', class: 'English', gender: 'female', homework: true},
 ])
 
-<!-- Find all female teachers -->
-db.teachers.find( {gender: 'female'} )
-
-<!-- Fine 1 female teacher -->
-db.teachers.find( {gender: 'female'} ).limit(1)
-
-<!-- Logical OR -->
-db.teachers.find({$or: [ {class: 'English'}, { name: 'Cooper'} ] })
+# Search by comparison $eq
+db.teachers.find( {class: {$eq: 'Art'} })
